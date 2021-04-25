@@ -12,6 +12,7 @@ import Registro from "./Registro";
 
 const Login = () => {
 
+    //uso de API local con json server, creado en archivos diferentes
     const url = 'http://localhost:3001/usuarios';
     const[urlUsuarios, setUrlUsuarios] = useState(url)
     const [datos, setDatos] = useState({});
@@ -26,12 +27,9 @@ const Login = () => {
   const iniciarSesion = async(values) => {
       try {
 
-        //login
+        //login,
           const response = await axios.get(urlUsuarios, { params: { username:values.username, password: md5(values.password) } });
           if(response.data.length > 0){
-              //console.log(response.data);
-              //.push(response.data)
-              //setDatos(response.data)
 
               //guardar las variables de incio de sesion
               let respuesta = response.data[0];
